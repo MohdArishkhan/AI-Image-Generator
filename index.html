@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AI Image Generator - Create stunning images with AI"
+    />
+    <title>AI Image Generator</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h1>AI Image Generator</h1>
+          <p>Create stunning images with artificial intelligence</p>
+        </div>
+
+        <form class="card-body" id="imageForm">
+          <!-- Prompt Input -->
+          <div class="form-group">
+            <label for="prompt"> Prompt <span class="required">*</span> </label>
+            <textarea
+              id="prompt"
+              name="prompt"
+              placeholder="Describe the image you want to generate..."
+              rows="4"
+              required
+              maxlength="1000"
+            ></textarea>
+            <span class="char-count">0 / 1000</span>
+            <!-- From Uiverse.io by StealthWorm -->
+            <div class="random-button">
+            <button type="button" class="btn">
+              <strong>GENERATE RANDOM</strong>
+              <div id="container-stars">
+                <div id="stars"></div>
+              </div>
+
+              <div id="glow">
+                <div class="circle"></div>
+                <div class="circle"></div>
+              </div>
+            </button>
+            </div>
+            
+          </div>
+
+          <!-- Model Selection -->
+          <div class="form-group">
+            <label for="model">
+              AI Model <span class="required">*</span>
+            </label>
+            <select id="model" name="model" required>
+              <!-- <option value="">Select a model</option> -->
+              <option value="black-forest-labs/FLUX.1-schnell">FLUX.1 Schnell</option>
+              <!-- <option value="dall-e-3">DALL-E 3</option>
+              <option value="dall-e-2">DALL-E 2</option>
+              <option value="stable-diffusion">Stable Diffusion</option>
+              <option value="midjourney">Midjourney</option>
+              <option value="imagen">Google Imagen</option> -->
+            </select>
+          </div>
+
+          <!-- Number of Images -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="numImages">
+                Number of Images <span class="required">*</span>
+              </label>
+              <select id="numImages" name="numImages" required>
+                <!-- <option value="">Select</option> -->
+                <option value="1" selected>1 Image</option>
+                <!-- <option value="2">2 Images</option>
+                <option value="3">3 Images</option>
+                <option value="4">4 Images</option>
+                <option value="5">5 Images</option>
+                <option value="6">6 Images</option> -->
+              </select>
+            </div>
+
+            <!-- Image Size -->
+            <div class="form-group">
+              <!-- <label for="imageSize">
+                Image Size <span class="required">*</span>
+              </label> -->
+              <!-- <select id="imageSize" name="imageSize" required>
+                <option value="">Select size</option>
+                <option value="256x256">256 × 256 (Small)</option>
+                <option value="512x512">512 × 512 (Medium)</option>
+                <option value="1024x1024" selected>1024 × 1024 (Large)</option>
+                <option value="1792x1024">1792 × 1024 (Wide)</option>
+                <option value="1024x1792">1024 × 1792 (Tall)</option> -->
+              <!-- </select> -->
+            </div>
+          </div>
+          <div class="form-actions">
+            <!-- From Uiverse.io by AlimurtuzaCodes -->
+            <button type="submit" class="btn-generate">
+              <svg
+                height="24"
+                width="24"
+                fill="#FFFFFF"
+                viewBox="0 0 24 24"
+                data-name="Layer 1"
+                id="Layer_1"
+                class="sparkle"
+              >
+                <path
+                  d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"
+                ></path>
+              </svg>
+
+              <span class="text">Generate</span>
+            </button>
+          </div>
+        </form>
+
+        <section class="results">
+          <div class="section-header">
+            <h2>Generated Images will come here</h2>
+          </div>
+          <div class="gallery-grid" id="galleryGrid" aria-live="polite">
+            <div class="image-item" id="image-1"></div>
+            <div class="image-item" id="image-2"></div>
+            <div class="image-item" id="image-3"></div>
+            <div class="image-item" id="image-4"></div>
+            <div class="image-item" id="image-5"></div>
+            <div class="image-item" id="image-6"></div>
+          </div>
+        </section>
+
+        <div class="card-footer">
+          <p class="info-text">
+            Tip: Be specific and descriptive for better results
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="env.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
